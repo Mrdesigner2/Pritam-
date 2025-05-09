@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Profile | Pritam</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/png" href="profile_pic.jpg">
+    <style>
+        * {
+            margin: 0; padding: 0;
+        }
+        body {
+            padding: 40px;
+            background-color: #121212;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            animation: fadeIn 1s ease;
+            overflow: auto;
+            position: relative;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        /* Video as Background */
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;  /* Makes sure the video stays in the background */
+            opacity: 0.4;  /* Adjust the opacity as needed */
+        }
+
+        .main_bg {
+            margin: 20px;
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
+            background-color: rgb(43 43 43 / 45%);
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 0 20px 8px rgb(129 131 131 / 30%);
+            animation: slideUp 1s ease;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .Profile img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            border: 2px solid #00e6e6;
+            box-shadow: 0 0 20px 8px rgb(114 114 114 / 30%);
+            transition: transform 0.3s ease;
+            animation: popIn 0.8s ease forwards;
+            opacity: 0;
+        }
+        @keyframes popIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .title-gradient {
+            font-size: 35px;
+            background: linear-gradient(45deg, #ff007f, #ffcc00);
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+            animation: popIn 1s ease forwards;
+            opacity: 0;
+            animation-delay: 0.3s;
+        }
+        .title-cursive {
+            font-family: "Brush Script MT", cursive;
+            font-size: 35px;
+            margin-bottom: 20px;
+            animation: popIn 1s ease forwards;
+            opacity: 0;
+            animation-delay: 0.5s;
+        }
+        .flex-center {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            text-align: center;
+            margin-bottom: 10px;
+            animation: popIn 1s ease forwards;
+            opacity: 0;
+            animation-delay: 0.7s;
+        }
+        .btn-common {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            text-align: center;
+            background-color: transparent;
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: 1px solid whitesmoke;
+            color: white;
+            box-shadow: 0 0 10px 8px rgb(0 239 255 / 20%);
+            font-size: 14px;
+            transition: all 0.3s ease, transform 0.2s;
+            box-sizing: border-box;
+            animation: popIn 1s ease forwards;
+            opacity: 0;
+            animation-delay: 1s;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        .btn-common:hover {
+            color: black;
+            background-color: white;
+            box-shadow: 0 0 10px 8px rgb(114 114 114 / 20%);
+            transform: scale(1.08); /* Pop-out effect */
+        }
+        .btn-common video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;  /* Optional: makes video background slightly transparent */
+        }
+        footer p {
+            margin-top: 30px;
+            animation: popIn 1s ease forwards;
+            opacity: 0;
+            animation-delay: 1.3s;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* Aspect Ratio 16:9 */
+            overflow: hidden;
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 600px;
+            box-shadow: 0 0 10px 8px rgb(129 131 131 / 30%);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background-color: rgb(43 43 43 / 45%);
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Background -->
+    <video class="video-background" autoplay muted loop>
+        <source src="bg_black01.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="Profile">
+        <img src="profile_pic.jpg" alt="Profile Picture">
+    </div>
+    <div class="main_bg">
+        <div class="container_text">
+            <h2 class="title-gradient">@editbypritamm</h2>
+            <h2 class="title-cursive">PRITAM EDITS</h2>
+        </div>
+
+        <div class="flex-center">
+            <h2>Watch My Work</h2>
+        </div>
+
+        <div class="flex-center">
+            <button class="btn-common" id="instagramButton">
+                <video autoplay muted loop>
+                    <source src="btn_video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <i class="fab fa-instagram"></i>
+                <span>Instagram Highlights</span>
+            </button>
+        </div>
+        <div class="flex-center">
+            <h2>Connect with me</h2>
+        </div>
+        <div class="flex-center">
+            <button class="btn-common" id="whatsappButton">
+                <video autoplay muted loop>
+                    <source src="btn_video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp</span>
+            </button>
+            <button class="btn-common" id="instagram-profileButton">
+                <video autoplay muted loop>
+                    <source src="btn_video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+            </button>
+            <button class="btn-common" id="telegramButton">
+                <video autoplay muted loop>
+                    <source src="btn_video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <i class="fab fa-telegram"></i>
+                <span>Telegram</span>
+            </button>
+            <button class="btn-common" id="snapchatButton">
+                <video autoplay muted loop>
+                    <source src="btn_video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <i class="fab fa-snapchat"></i>
+                <span>Snapchat</span>
+            </button>
+        </div>
+
+        <div class="flex-center">
+            <h2 id="h2003">Video in collaboration</h2>
+        </div>
+        
+        <div class="video-container">
+            <video id="ambient-video" autoplay muted loop playsinline>
+                <source src="video_collab.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Pritam Edits. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // WhatsApp Button
+        document.getElementById("whatsappButton").addEventListener("click", function() {
+            window.open("https://wa.me/919263827870", "_blank");  // Replace with your WhatsApp number
+        });
+
+        document.getElementById("instagram-profileButton").addEventListener("click", function() {
+            window.open("https://www.instagram.com/editbypritamm/", "_blank");  // Replace with your WhatsApp number
+        });
+
+        // Instagram Button
+        document.getElementById("instagramButton").addEventListener("click", function() {
+            window.open("https://www.instagram.com/s/aGlnaGxpZ2h0OjE3ODkwNjMyMjQ2MjA4ODIz?story_media_id=3599565562311485470_61283486812&igsh=MWhmY3V2N2treHVqOA==", "_blank"); 
+        });
+
+        // Telegram Button
+        document.getElementById("telegramButton").addEventListener("click", function() {
+            window.open("https://t.me/pritamchoudhary_53", "_blank"); 
+        });
+
+        // Snapchat Button
+        document.getElementById("snapchatButton").addEventListener("click", function() {
+            window.open("https://www.snapchat.com/add/pritaminfinity?share_id=F_GUURnwJc4&locale=en-IN", "_blank");
+        });
+
+       
+    </script>
+</body>
+</html>
